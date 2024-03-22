@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <!-- Root menu -->
+        <menuitem id="menu_records" name="Records" sequence="10"/>
+
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="action_registration">
+            <field name="name">Registration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">registration</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_registration_form"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_course">
+            <field name="name">Course</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">course</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_course_form"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_student">
+            <field name="name">Student</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_student_form"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_teacher">
+            <field name="name">Teacher</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">teacher</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_teacher_form"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_subject">
+            <field name="name">Subject</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">subject</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_subject_form"/>
+        </record>
+        
+        <!-- Menu Items -->
+        <menuitem id="menu_registration" name="Registration" parent="menu_records" action="action_registration"/>
+        <menuitem id="menu_course" name="Course" parent="menu_records" action="action_course"/>
+        <menuitem id="menu_student" name="Student" parent="menu_records" action="action_student"/>
+        <menuitem id="menu_teacher" name="Teacher" parent="menu_records" action="action_teacher"/>
+        <menuitem id="menu_subject" name="Subject" parent="menu_records" action="action_subject"/>
+    </data>
+</odoo>

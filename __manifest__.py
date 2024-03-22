@@ -31,7 +31,7 @@
         'views/teacher_view.xml',
         'views/subject_view.xml',
         'views/res_partner_views.xml',
-        'views/menu.xml'
+        'views/record_menu.xml'
     ],
 
     # only loaded in demonstration mode
