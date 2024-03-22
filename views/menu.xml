@@ -1,0 +1,5 @@
+<odoo>
+    <data>
+        <menuitem id="menu_student" name="Student" sequence="1" groups="base.group_user"/>
+    </data>
+</odoo>
