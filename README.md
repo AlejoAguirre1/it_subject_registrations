@@ -37,4 +37,4 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 Alternatively, you can submit a pull request with your proposed changes.
 
 ## License
-This module is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to modify and distribute it as per the terms of the license.
+This module is licensed under the [Affero GPL-3 License](https://www.gnu.org/licenses/agpl-3.0.en.html). Feel free to modify and distribute it as per the terms of the license.
