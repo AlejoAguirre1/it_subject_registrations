@@ -1,0 +1,20 @@
+<!-- registration_view.xml -->
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_registration_form">
+            <field name="name">registration.form</field>
+            <field name="model">registration</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="course_id"/>
+                            <field name="registration_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

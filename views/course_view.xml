@@ -1,0 +1,42 @@
+<!-- course_view.xml -->
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_course_form">
+            <field name="name">course.form</field>
+            <field name="model">course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="course_name"/>
+                            <field name="course_description"/>
+                        </group>
+                        <notebook>
+                            <page string="Subjects">
+                                <field name="subject_ids">
+                                    <tree editable="bottom">
+                                        <field name="subject_name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Teachers">
+                                <field name="teacher_ids">
+                                    <tree editable="bottom">
+                                        <field name="partner_id" context="{'default_is_teacher': 1}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <field name="registration_ids" context="{'default_course_id': active_id}">
+                            <tree editable="bottom">
+                                <field name="student_id"/>
+                                <field name="registration_date"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

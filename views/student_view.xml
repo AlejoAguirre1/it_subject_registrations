@@ -1,0 +1,21 @@
+
+<!-- student_view.xml -->
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_student_form">
+            <field name="name">student.form</field>
+            <field name="model">student</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <form> 
+                    <xpath expr="//field[@name='email']" position="after">
+                        <field name="birth_date"/>
+                        <field name="age"/>
+                        <field name="student_DNI"/>
+                        <field name="course_id"/>
+                    </xpath>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

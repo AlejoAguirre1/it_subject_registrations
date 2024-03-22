@@ -1,0 +1,23 @@
+
+<!-- teacher_view.xml -->
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_teacher_form">
+            <field name="name">teacher.form</field>
+            <field name="model">teacher</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <form>
+                    <xpath expr="//field[@name='email']" position="after">
+                        <field name="teach_DNI"/>
+                        <field name="subject_ids">
+                                <tree editable="bottom">
+                                    <field name="subject_name"/>
+                                </tree>
+                        </field>
+                    </xpath>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
