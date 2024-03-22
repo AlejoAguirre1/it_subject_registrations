@@ -19,6 +19,8 @@ class Student(models.Model):
     birth_date = fields.Date(string='Fecha de Nacimiento')
     age = fields.Integer(string='Edad', compute='_compute_age', store=True)
 
+    # Computes the student's age based on the current's date, and his birth date
+    # The for loop here is used in case reloading several student's age is necessary
     @api.depends('birth_date')
     def _compute_age(self):
         for student in self:
@@ -34,8 +36,12 @@ class Course(models.Model):
     _name = 'course'
     # _inherits = 'product.template'
     _description = 'Model to manage courses'
+    _inherits = {'product.template': 'product_id'}
 
-    product_id = fields.Many2one('product.template', string='Product', required=True, ondelete="cascade")
+    product_id = fields.Many2one('product.template', required=True, ondelete="cascade", auto_join=True, index=True,
+                                 string='Product', help='Product-related data of the course')
+
+    # product_id = fields.Many2one('product.template', string='Product', required=True, ondelete="cascade")
     course_name = fields.Char(string='Nombre del Curso')
     course_description = fields.Text(string='Descripción del Curso')
     subject_ids = fields.Many2many('subject', string='Materias')
@@ -56,6 +62,7 @@ class Teacher(models.Model):
     subject_ids = fields.One2many('subject', 'teacher_ids', string='Materias')
 
 
+# The subject model, it provides fiels for the name of the subject, course_id, and teachers
 class Subject(models.Model):
     _name = 'subject'
     _description = 'Model to manage subjects'
@@ -65,6 +72,7 @@ class Subject(models.Model):
     teacher_ids = fields.Many2many('teacher', string='Profesores')
 
 
+# The registration model, it provides fiels for the registration ID, student, course, and registration date
 class Registration(models.Model):
     _name = 'registration'
     _description = 'Model to manage student registrations'

@@ -5,15 +5,16 @@
         <record model="ir.ui.view" id="view_student_form">
             <field name="name">student.form</field>
             <field name="model">student</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="base.view_partner_simple_form"/>
             <field name="arch" type="xml">
-                <form> 
-                    <xpath expr="//field[@name='email']" position="after">
-                        <field name="birth_date"/>
-                        <field name="age"/>
-                        <field name="student_DNI"/>
-                        <field name="course_id"/>
-                    </xpath>
+                <form>
+                    <field name="name" position="replace"/>
+                    <field name="phone" position="replace"/>
+                    <field name="email" position="replace"/>
+                    <field name="birth_date"/>
+                    <field name="age"/>
+                    <field name="student_DNI"/>
+                    <field name="course_id"/>
                 </form>
             </field>
         </record>

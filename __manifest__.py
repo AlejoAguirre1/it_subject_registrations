@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "it_subject_registrations",
+    'name': "IT Subject Registrations",
 
     'summary': """
         A module designed to manage the enrolment of new students 
@@ -13,7 +13,7 @@
     """,
 
     'author': "Alejandro Aguirre",
-    'website': "http://www.yourcompany.com",
+    'website': "https://github.com/AlejoAguirre1/it_subject_registrations/tree/master",
 
     # Categories can be used to filter modules in modules listing
     'category': 'Human Resources',
@@ -31,6 +31,7 @@
         'views/teacher_view.xml',
         'views/subject_view.xml',
         'views/res_partner_views.xml',
+        'views/menu.xml'
     ],
 
     # only loaded in demonstration mode

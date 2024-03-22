@@ -5,7 +5,7 @@
         <record model="ir.ui.view" id="view_teacher_form">
             <field name="name">teacher.form</field>
             <field name="model">teacher</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="base.view_partner_simple_form"/>
             <field name="arch" type="xml">
                 <form>
                     <xpath expr="//field[@name='email']" position="after">
