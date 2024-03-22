@@ -1,7 +1,7 @@
 # it_subject_registrations
 
 ## Summary
-A module designed to manage the enrolment of new students in an educational system.
+An Odoo 15.0 module designed to manage the enrolment of new students in an educational system.
 
 ## Description
 The "it_subject_registrations" module provides functionality for registering students and teachers within an educational system. It allows for easy management of subjects, courses, and the association between students and teachers.
