@@ -1,10 +1,14 @@
 <odoo>
     <data>
-        <!-- Root menu -->
-        <menuitem id="menu_records" name="Records" sequence="10"/>
+        <!-- ######################### -->
+        <!--         Root Menu         -->
+        <!-- ######################### -->
+        <menuitem id="menu_records" name="School" sequence="10"/>
 
-        <!-- Actions -->
-        <record model="ir.actions.act_window" id="action_registration">
+        <!-- ######################### -->
+        <!-- Actions to call the views -->
+        <!-- ######################### -->
+        <record id="action_registration" model="ir.actions.act_window">
             <field name="name">Registration</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">registration</field>
@@ -12,7 +16,7 @@
             <field name="view_id" ref="view_registration_form"/>
         </record>
 
-        <record model="ir.actions.act_window" id="action_course">
+        <record id="action_course" model="ir.actions.act_window">
             <field name="name">Course</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">course</field>
@@ -20,15 +24,22 @@
             <field name="view_id" ref="view_course_form"/>
         </record>
 
-        <record model="ir.actions.act_window" id="action_student">
+        <record id="action_student" model="ir.actions.act_window">
             <field name="name">Student</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">student</field>
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_student_form"/>
         </record>
+        <record id="action_student_tree" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_student_tree"/>
+        </record>
 
-        <record model="ir.actions.act_window" id="action_teacher">
+        <record id="action_teacher" model="ir.actions.act_window">
             <field name="name">Teacher</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">teacher</field>
@@ -36,18 +47,14 @@
             <field name="view_id" ref="view_teacher_form"/>
         </record>
 
-        <record model="ir.actions.act_window" id="action_subject">
-            <field name="name">Subject</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">subject</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_subject_form"/>
-        </record>
-        
-        <!-- Menu Items -->
+        <!-- ######################### -->
+        <!--         Menu Items        -->
+        <!-- ######################### -->
         <menuitem id="menu_registration" name="Registration" parent="menu_records" action="action_registration"/>
         <menuitem id="menu_course" name="Course" parent="menu_records" action="action_course"/>
-        <menuitem id="menu_student" name="Student" parent="menu_records" action="action_student"/>
+        <menuitem id="menu_student" name="Student" parent="menu_records" />
+        <menuitem id="menu_student_add" name="Agregar" parent="menu_student" action="action_student"/>
+        <menuitem id="menu_student_view" name="Modificar" parent="menu_student" action="action_student_tree"/>
         <menuitem id="menu_teacher" name="Teacher" parent="menu_records" action="action_teacher"/>
         <menuitem id="menu_subject" name="Subject" parent="menu_records" action="action_subject"/>
     </data>

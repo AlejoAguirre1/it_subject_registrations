@@ -1,21 +1,58 @@
-
 <!-- student_view.xml -->
 <odoo>
     <data>
-        <record model="ir.ui.view" id="view_student_form">
+        <record id="view_student_form" model="ir.ui.view">
             <field name="name">student.form</field>
             <field name="model">student</field>
             <field name="inherit_id" ref="base.view_partner_simple_form"/>
             <field name="arch" type="xml">
-                <form>
-                    <field name="name" position="replace"/>
-                    <field name="phone" position="replace"/>
-                    <field name="email" position="replace"/>
-                    <field name="birth_date"/>
-                    <field name="age"/>
+                <xpath expr="//field[@name='function']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath> 
+                <xpath expr="//field[@name='phone']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath> 
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>   
+                <xpath expr="//field[@name='company_type']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath> 
+                <xpath expr="//field[@name='image_1920']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='email']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='mobile']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+   
+                <xpath expr="//field[@name='mobile']" position="after">
+                    <field name="course_id" placeholder="e.g. ED01..."/>
+                    <field name="student_DNI" on_change="on_change_student_dni(student_DNI)"/>
+                    <field name="birth_date" placeholder="e.g. 12/10/2004" widget="date"/>
+                    <field name="age" widget="integer" readonly="1" attrs="{'invisible': [('birth_date', '=', False)]}"/>
+                    <field name="age" widget="integer" attrs="{'invisible': [('birth_date', '!=', False)]}"/>
+                    <field name="email" string="Correo" placeholder="e.g. salesrepresentative@itsales.com"/>
+                    <field name="phone" string="Teléfono" placeholder="e.g. 0414-5248425"/>
+                </xpath>              
+            </field>
+        </record>
+
+        <record id="view_student_tree" model="ir.ui.view">
+            <field name="name">student.tree</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <!-- <tree create="true" editable="top" create_edit_mode="inline" delete="true"> -->
+                <tree create="false" edit="false" editable="top">
+                    <field name="name" string="Nombre"/>
                     <field name="student_DNI"/>
+                    <field name="age"/>
                     <field name="course_id"/>
-                </form>
+                    <field name="phone" string="Teléfono"/>
+                    <field name="email" string="Correo"/>
+                </tree>
             </field>
         </record>
     </data>

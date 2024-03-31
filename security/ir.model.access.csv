@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_it_subject_registrations_it_subject_registrations,it_subject_registrations.it_subject_registrations,model_it_subject_registrations_it_subject_registrations,base.group_user,1,1,1,1
+access_student,access.student,model_student,,1,1,1,1
+access_course,access.course,model_course,,1,1,1,1
+access_teacher,access.teacher,model_teacher,,1,1,1,1
+access_subject,access.subject,model_subject,,1,1,1,1
+access_registration,access.registration,model_registration,,1,1,1,1

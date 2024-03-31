@@ -1,27 +1,48 @@
 <!-- subject_view.xml -->
 <odoo>
     <data>
-        <record model="ir.ui.view" id="view_subject_form">
+        <record id="view_subject_tree" model="ir.ui.view">
+            <field name="name">subject.tree</field>
+            <field name="model">subject</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="subject_name"/>
+                    <field name="teacher_ids" invisible="1" string="Nombres"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_subject_form" model="ir.ui.view">
             <field name="name">subject.form</field>
             <field name="model">subject</field>
             <field name="arch" type="xml">
-                <form>
+                <form string="Subject">
                     <sheet>
                         <group>
-                            <field name="subject_name"/>
+                            <group>
+                                <field name="subject_name"/>
+                            </group>
+                            <group>
+                                <field name="course_id"/>
+                            </group>
                         </group>
-                        <notebook>
-                            <page string="Teachers">
-                                <field name="teacher_ids">
-                                    <tree editable="bottom">
-                                        <field name="name"/>
-                                    </tree>
-                                </field>
-                            </page>
-                        </notebook>
+                        <group>
+                            <field name="teacher_ids" widget="many2many_tags" options="{'no_create': True}">
+                                <tree>
+                                    <field name="name" string="Nombre"/>
+                                </tree>
+                            </field>
+                        </group>
                     </sheet>
                 </form>
             </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_subject">
+            <field name="name">Subjects</field>
+            <field name="res_model">subject</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_subject_tree"/>
         </record>
     </data>
 </odoo>
