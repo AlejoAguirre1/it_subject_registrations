@@ -17,7 +17,7 @@
 
     # Categories can be used to filter modules in modules listing
     'category': 'Human Resources',
-    'version': '0.1',
+    'version': '0.2',
     'license': 'AGPL-3',
 
     # any module necessary for this one to work correctly
